@@ -1,0 +1,72 @@
+Git Branches :
+	`git branch`  = To get the list of all branches
+	`git branch  <branch_name>`  = To create a new branch
+	`git checkout <branch_name>`  = To select a branch
+	`git checkout -b <branch_name>`  = To create and select the new branch at same time
+	`git branch -m <new name of branch>`  = This will rename the current selected branch 
+	`git branch -d <branch_name>`  = To delete a branch
+			 	      (Note: selected branch can't be deleted)
+	
+
+	if we do not want to commit right now but want to save our changes temporarily then we use 'stash' command:
+	`git stash`  : save the changes temporarily somewhere
+	`git stash apply`  : it will apply the changes which we make
+
+
+Merging Branches :
+	git merge <branch_name> : this will merge the given branch to the current selected branch
+	
+	~ Note : first we have to select the branch in which we want to merge( for eg. : *main branch ) and then run above command to get merge
+ 
+Merge Conflict :
+	# When we make the changes in the same file (for eg. - file1.txt) from two branches and both braches are unaware of that changes
+	then at this time i will go and try to merge these branches, then it will get confused that should i keep the changes in line1 which is done by feature_branch or keep the changes done by master branch
+	and this will lead to Merge conflict.
+	
+	# Now when we find a merge conflict then we need to manually address it.
+	# Now when there is merge conflict in a file then it will look something like this :
+		<<<<<<< HEAD
+		hello world !
+		hello world again 👩🏻
+		this is the content from master branch
+		=======
+		this is the content added from feature_branch
+		>>>>>>> feature_branch
+	# the content which is above the '====' sign , is from the current branch and below this sign is from another branch 
+	# then we have to manually keep the changes which we want to keep and then commit finally
+
+
+
+
+
+GitHub :
+	git remote -v : to check that from which repository i am connected
+	git clone <repo-link> : to clone a remote repository into my local machine
+	git fetch <origin> : it will fetch the latest changes from remote
+	
+	
+	Now if we bring the remote changes :
+		git fetch <origin> : it will fetch the latest changes from remote but will not merge
+		git merge origin/main : to merge the changes after fetching
+	
+	git pull origin : it will fetch and merge the changes in one command only
+		Hence, git pull == git fetch + git merge
+	git push origin : it will push the changes i made in my local machine to current remote repository
+
+Now if we want to make Open Souce Contribution then we have to do following steps :
+	1. we have to fork a repository in which we want to contribute into our github by clicking on the 'fork' button of that repo.
+	2. we clone it to our local machine to add some code / or we can do this on github itself , and commit the changes
+	3. we push our changes(using 'git push' command) into our forked repository on github.
+	4. Now we have to make a request to the owner to take my changes, which request is called "PULL REQUEST".
+
+
+
+
+
+
+
+
+
+
+
+
